@@ -1,0 +1,19 @@
+{
+  "name": "get-git",
+  "version": "v0.0.1",
+  "description": "GetGit get's your git feed!",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digi-brains/get-git"
+  },
+  "homepage": "http://digi-brains.github.io/get-git",
+  "keywords": [
+    "php",
+    "git"
+  ],
+  "author": "Chris Brown <chris@digitalbrains.io> (https://digitalbrains.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digi-brains/get-git/issues"
+  }
+}
