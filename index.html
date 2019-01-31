@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>GetGit</title>
-        <meta name="description" content="A simple PHP class to return your Git json objects.">
+        <meta name="description" content="A simple PHP class to return your Git JSON objects.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style type="text/css">
             body {margin: auto; max-width: 64em; padding: 1em; font-family: sans-serif;}
+            h1, h2, h3, h4 {color: #4286f4;}
+            code, pre {background-color: #fefefe;}
         </style>
     </head>
     <body>
@@ -16,7 +18,7 @@
         <h1>GetGit</h1>
 
         <p>
-            GetGit is a simple PHP class that uses cURL to return your Git objects as json.
+            GetGit is a simple PHP class that uses curl to return your Git objects as JSON. It uses GitHub's <a href="https://developer.github.com/v4/">GraphQL API v4</a>.
         </p>
 
         <p>
@@ -35,7 +37,7 @@
                 An OAuth token with the right scopes. Create this from your GitHub account settings.
             </li>
             <li>
-                PHP with the cURL module enabled.
+                PHP with the curl module enabled.
             </li>
         </ul>
         
@@ -44,27 +46,121 @@
         </h3>
 
         <p>
-            <b>Clone the repo: </b> <pre>git@github.com:digi-brains/get-git.git</pre>
+            <b>1. Clone the repo: </b>
         </p>
 
-        <p>
-            <b>Via composer.json</b>
-        </p>
         <pre>
-            {
-                "require": {
-                    "digi-brains/get-git" : "1.0.0"
-                }
-            }
+        git@github.com:digi-brains/get-git.git
         </pre>
+
         <p>
-            <b>Just get the script: </b><a href="https://github.com/digi-brains/get-git/blob/master/src/GetGit.php">GetGit.php</a>
+            <b>2. Via composer.json</b>
         </p>
 
+        <pre>
+        {
+            "require": {
+                "digi-brains/get-git" : "1.0.0"
+            }
+        }
+        </pre>
+
+        <p>
+            <b>3. Just get the script: </b><a href="https://github.com/digi-brains/get-git/blob/master/src/GetGit.php">GetGit.php</a>
+        </p>
 
         <h2>
             Usage
         </h2>
-        
+
+        <ol>
+            <li>
+                <p>
+                    Include the script in your application.
+                </p>
+            </li>
+                <p>
+                    Create a <code>new GetGit($token, $query, $vars)</code> object. The GetGit class requires 2 parameters and an optional 3rd parameter.
+                    <ul>
+                        <li>
+                            $token - Your OAuth token. (Required)
+                        </li>
+                        <li>
+                            $query - Your multi-line<a href="#graph-explorer">*</a> JSON query. (Required) <a href="https://developer.github.com/v4/guides/forming-ca">Example</a>
+                        </li>
+                        <li>
+                            $vars - Any query variables (Optional) <a href="https://developer.github.com/v4/guides/forming-calls/#working-with-variables">Example</a>
+                        </li>
+                    </ul>
+                </p>
+            <li>
+                <p>
+                    Then just call GetGit's single method <code>query_GraphQL()</code> that will return your GitHub objects as JSON in a schema you declare.
+                </p>
+            </li>
+        </ol>
+
+        <h3>Examples</h3>
+        <p>
+            For this example we'll assume you're using an autoloader and using the 'DigiBrains' namespace (otherwise just include the GetGit.php script somewhere at the top of your application). Also we'll assume you're using variables in your query, but those are totally optional. If you're not using variables, just leave out the 3rd parameter.
+        </p>
+
+        <p><b>index.php</b></p>
+        <pre>
+    <?php
+        require __DIR__ . '/vendor/autoload.php';
+
+        use DigiBrains\GetGit;
+
+        $gittoken = 2103qwerijhdsf76q243iuhfg0yq43tnuerfg0y2;
+        $query = file_get_contents( __DIR__ . '/path/to/query.json');
+        $vars = file_get_contents( __DIR__ . '/path/to/variables.json');
+        $g = new GetGit($gittoken, $query, $vars);
+        $g->query_GraphQL();
+        </pre>
+
+        <p>
+            query.json
+        </p>
+        <pre>
+    query($number_of_repos:Int!) {
+        viewer {
+            repositories(first: $number_of_repos, privacy: PUBLIC, orderBy:{field:NAME, direction:ASC}) {
+                nodes {
+                    name
+                    url
+                }
+            }
+        }
+    }
+        </pre>
+
+        <p>
+            variables.json (optional)
+        </p>
+
+        <pre>
+    {
+       "number_of_repos": 10
+    }
+        </pre>
+
+        <h4>
+            Error Handling
+        </h4>
+
+        <p>
+            You can trust that GetGit will just work, or better yet, you can check for errors. If GetGit encounters an error with curl or errors retrieving your Git object it will return a single one or two digit error code. See <a href="https://curl.haxx.se/libcurl/c/libcurl-errors.html">curl error codes</a>.
+        </p>
+        <p>
+            If curl is successful it will return a JSON object from GitHub's API. You can further error check the JSON return as GitHub will return errors within the JSON object if you have problems with your $query.
+        </p>
+
+
+        <h4>Appendix</h4>
+        <p id="graph-explorer">
+            Since GitHub uses "multi-line" JSON for it's queries it is highly advisabel to use GitHub's <a href="https://developer.github.com/v4/explorer/">GraphQL Explorer</a> to work out your queries and variables.
+        </p>
+
     </body>
 </html>
