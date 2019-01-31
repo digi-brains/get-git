@@ -1,6 +1,6 @@
 {
   "name": "get-git",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "description": "A simple PHP class to return your Git JSON objects.",
   "repository": {
     "type": "git",
