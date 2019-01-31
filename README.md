@@ -4,3 +4,24 @@
 
 # GetGit
 
+GetGit is a simple PHP class that uses cURL to return your Git objects as json.
+
+[Documentation](https://digi-brains.github.io/get-git/)
+
+## Requirements
+
+- A [GitHub account](https://github.com/pricing).
+- An OAuth token with the right scopes. Create this from your GitHub account settings.
+- PHP with the cURL module enabled.
+
+### Installation
+
+Via composer.json
+
+```
+{
+    "require": {
+        "digi-brains/get-git" : "1.0.0"
+    }
+}
+```

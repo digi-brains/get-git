@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>GetGit</title>
-        <meta name="description" content="A simple PHP script to return your Git json objects.">
+        <meta name="description" content="A simple PHP class to return your Git json objects.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style type="text/css">
-            
+            body {margin: auto; max-width: 64em; padding: 1em; font-family: sans-serif;}
         </style>
     </head>
     <body>
@@ -15,6 +15,56 @@
 
         <h1>GetGit</h1>
 
-        <script></script>
+        <p>
+            GetGit is a simple PHP class that uses cURL to return your Git objects as json.
+        </p>
+
+        <p>
+            <a href="https://digi-brains.github.io/get-git/">Repo</a>
+        </p>
+
+        <h2>
+            Requirements
+        </h2>
+
+        <ul>
+            <li>
+                A <a href="https://github.com/pricing">GitHub account</a>.
+            </li>
+            <li>
+                An OAuth token with the right scopes. Create this from your GitHub account settings.
+            </li>
+            <li>
+                PHP with the cURL module enabled.
+            </li>
+        </ul>
+        
+        <h3>
+            Installation: 3 methods
+        </h3>
+
+        <p>
+            <b>Clone the repo: </b> <pre>git@github.com:digi-brains/get-git.git</pre>
+        </p>
+
+        <p>
+            <b>Via composer.json</b>
+        </p>
+        <pre>
+            {
+                "require": {
+                    "digi-brains/get-git" : "1.0.0"
+                }
+            }
+        </pre>
+        <p>
+            <b>Just get the script: </b><a href="https://github.com/digi-brains/get-git/blob/master/src/GetGit.php">GetGit.php</a>
+        </p>
+
+
+        <h2>
+            Usage
+        </h2>
+        
     </body>
 </html>
