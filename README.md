@@ -4,15 +4,15 @@
 
 # GetGit
 
-GetGit is a simple PHP class that uses cURL to return your Git objects as json.
+GetGit is a simple PHP class that uses curl to return your Git objects as json.
 
-[Documentation](https://digi-brains.github.io/get-git/)
+[Read The Documentation](https://digi-brains.github.io/get-git/)
 
 ## Requirements
 
 - A [GitHub account](https://github.com/pricing).
 - An OAuth token with the right scopes. Create this from your GitHub account settings.
-- PHP with the cURL module enabled.
+- PHP with the curl module enabled.
 
 ### Installation
 

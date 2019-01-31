@@ -9,7 +9,9 @@
         <style type="text/css">
             body {margin: auto; max-width: 64em; padding: 1em; font-family: sans-serif;}
             h1, h2, h3, h4 {color: #4286f4;}
-            code, pre {background-color: #fefefe;}
+            code, pre {background-color: #eee; padding: .25em;}
+            pre {background-color: #666; color: #eee; padding: 1em;}
+            a {color: red;}
         </style>
     </head>
     <body>
@@ -49,21 +51,21 @@
             <b>1. Clone the repo: </b>
         </p>
 
-        <pre>
-        git@github.com:digi-brains/get-git.git
-        </pre>
+<pre>
+git@github.com:digi-brains/get-git.git
+</pre>
 
         <p>
             <b>2. Via composer.json</b>
         </p>
 
-        <pre>
-        {
-            "require": {
-                "digi-brains/get-git" : "1.0.0"
-            }
-        }
-        </pre>
+<pre>
+{
+    "require": {
+        "digi-brains/get-git" : "1.0.0"
+    }
+}
+</pre>
 
         <p>
             <b>3. Just get the script: </b><a href="https://github.com/digi-brains/get-git/blob/master/src/GetGit.php">GetGit.php</a>
@@ -79,8 +81,9 @@
                     Include the script in your application.
                 </p>
             </li>
+            <li>
                 <p>
-                    Create a <code>new GetGit($token, $query, $vars)</code> object. The GetGit class requires 2 parameters and an optional 3rd parameter.
+                    Create a <code>new GetGit()</code> object. The GetGit class requires 2 parameters and an optional 3rd parameter.
                     <ul>
                         <li>
                             $token - Your OAuth token. (Required)
@@ -93,6 +96,7 @@
                         </li>
                     </ul>
                 </p>
+            </li>
             <li>
                 <p>
                     Then just call GetGit's single method <code>query_GraphQL()</code> that will return your GitHub objects as JSON in a schema you declare.
@@ -106,48 +110,44 @@
         </p>
 
         <p><b>index.php</b></p>
-        <pre>
-    <?php
-        require __DIR__ . '/vendor/autoload.php';
+<pre>
+require __DIR__ . '/vendor/autoload.php';
 
-        use DigiBrains\GetGit;
+use DigiBrains\GetGit;
 
-        $gittoken = 2103qwerijhdsf76q243iuhfg0yq43tnuerfg0y2;
-        $query = file_get_contents( __DIR__ . '/path/to/query.json');
-        $vars = file_get_contents( __DIR__ . '/path/to/variables.json');
-        $g = new GetGit($gittoken, $query, $vars);
-        $g->query_GraphQL();
-        </pre>
+$token = YourOAuthTokenHere;
+$query = file_get_contents( __DIR__ . '/path/to/query.json');
+$vars = file_get_contents( __DIR__ . '/path/to/variables.json');
 
-        <p>
-            query.json
-        </p>
-        <pre>
-    query($number_of_repos:Int!) {
-        viewer {
-            repositories(first: $number_of_repos, privacy: PUBLIC, orderBy:{field:NAME, direction:ASC}) {
-                nodes {
-                    name
-                    url
-                }
+$g = new GetGit($token, $query, $vars);
+$g->query_GraphQL();
+</pre>
+
+        <p><b>query.json</b></p>
+<pre>
+query($number_of_repos:Int!) {
+    viewer {
+        repositories(first: $number_of_repos, privacy: PUBLIC, orderBy:{field:NAME, direction:ASC}) {
+            nodes {
+                name
+                url
             }
         }
     }
-        </pre>
+}
+</pre>
 
-        <p>
-            variables.json (optional)
-        </p>
+        <p><b>variables.json (optional)</b></p>
 
-        <pre>
-    {
-       "number_of_repos": 10
-    }
-        </pre>
+<pre>
+{
+   "number_of_repos": 10
+}
+</pre>
 
-        <h4>
+        <h2>
             Error Handling
-        </h4>
+        </h2>
 
         <p>
             You can trust that GetGit will just work, or better yet, you can check for errors. If GetGit encounters an error with curl or errors retrieving your Git object it will return a single one or two digit error code. See <a href="https://curl.haxx.se/libcurl/c/libcurl-errors.html">curl error codes</a>.
