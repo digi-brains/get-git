@@ -21,7 +21,7 @@ Via composer.json
 ```
 {
     "require": {
-        "digi-brains/get-git" : "1.0.1"
+        "digi-brains/get-git" : "<a specific release or 'dev-master'>"
     }
 }
 ```
