@@ -1,6 +1,6 @@
-![](https://img.shields.io/github/release/sageworksstudio/get-git.svg?style=flat-square)
-![](https://img.shields.io/github/license/sageworksstudio/get-git.svg?style=flat-square)
-![](https://img.shields.io/github/issues/sageworksstudio/get-git.svg?style=flat-square)
+![https://github.com/sageworksstudio/get-git/releases](https://img.shields.io/github/release/sageworksstudio/get-git.svg?style=flat-square)
+![https://github.com/sageworksstudio/get-git/blob/master/LICENSE](https://img.shields.io/github/license/sageworksstudio/get-git.svg?style=flat-square)
+![https://github.com/sageworksstudio/get-git/issues](https://img.shields.io/github/issues/sageworksstudio/get-git.svg?style=flat-square)
 
 # GetGit
 
