@@ -1,17 +1,17 @@
 {
-    "name": "digi-brains/get-git",
+    "name": "sageworksstudio/get-git",
     "description": "Gets a Git feed.",
     "keywords": [
         "git",
         "php"
     ],
-    "homepage": "https://github.com/digi-brains/get-git",
+    "homepage": "https://github.com/sageworksstudio/get-git",
     "license": "MIT",
     "authors": [
         {
             "name": "Chris Brown",
-            "email": "chris@digitalbrains.io",
-            "homepage": "https://github.com/digi-brains/get-git"
+            "email": "chris@sageworksstudio.com",
+            "homepage": "https://github.com/sageworksstudio/get-git"
         }
     ],
     "require": {
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DigiBrains\\": "src/"
+            "SageworksStudio\\": "src/"
         }
     }
 }
