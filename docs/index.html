@@ -24,7 +24,7 @@
         </p>
 
         <p>
-            <a href="https://github.com/digi-brains/get-git">Repo</a>
+            <a href="https://github.com/sageworksstudio/get-git">Repo</a>
         </p>
 
         <h2>
@@ -78,14 +78,14 @@
 
         <h3>Examples</h3>
         <p>
-            For this example we'll assume you're using an autoloader and using the 'DigiBrains' namespace (otherwise just include the GetGit.php script somewhere at the top of your application). Also we'll assume you're using variables in your query, but those are totally optional. If you're not using variables, just leave out the 3rd parameter.
+            For this example we'll assume you're using an autoloader and using the 'SageworksStudio' namespace (otherwise just include the GetGit.php script somewhere at the top of your application). Also we'll assume you're using variables in your query, but those are totally optional. If you're not using variables, just leave out the 3rd parameter.
         </p>
 
         <p><b>index.php</b></p>
 <pre>
 require __DIR__ . '/vendor/autoload.php';
 
-use DigiBrains\GetGit;
+use SageworksStudio\GetGit;
 
 $token = YourOAuthTokenHere;
 $query = file_get_contents( __DIR__ . '/path/to/query.json');

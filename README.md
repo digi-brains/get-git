@@ -1,12 +1,12 @@
-![](https://img.shields.io/github/release/digi-brains/get-git.svg?style=flat-square)
-![](https://img.shields.io/github/license/digi-brains/get-git.svg?style=flat-square)
-![](https://img.shields.io/github/issues/digi-brains/get-git.svg?style=flat-square)
+![](https://img.shields.io/github/release/sageworksstudio/get-git.svg?style=flat-square)
+![](https://img.shields.io/github/license/sageworksstudio/get-git.svg?style=flat-square)
+![](https://img.shields.io/github/issues/sageworksstudio/get-git.svg?style=flat-square)
 
 # GetGit
 
 GetGit is a simple PHP class that uses curl to return your Git objects as json.
 
-[Read The Documentation](https://digi-brains.github.io/get-git/)
+[Read The Documentation](https://sageworksstudio.github.io/get-git/)
 
 ## Requirements
 
@@ -21,7 +21,7 @@ Via composer.json
 ```
 {
     "require": {
-        "digi-brains/get-git" : "<a specific release or 'dev-master'>"
+        "sageworksstudio/get-git" : "<a specific release or 'dev-master'>"
     }
 }
 ```

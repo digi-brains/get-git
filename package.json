@@ -3,17 +3,17 @@
   "description": "A simple PHP class to return your Git JSON objects.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digi-brains/get-git"
+    "url": "https://github.com/sageworksstudio/get-git"
   },
-  "homepage": "http://digi-brains.github.io/get-git",
+  "homepage": "https://sageworksstudio.github.io/get-git",
   "keywords": [
     "php",
     "git",
     "curl"
   ],
-  "author": "Chris Brown <chris@digitalbrains.io> (https://digitalbrains.io)",
+  "author": "Chris Brown <chris@sageworksstudio.com> (https://sageworksstudio.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/digi-brains/get-git/issues"
+    "url": "https://github.com/sageworksstudio/get-git/issues"
   }
 }
